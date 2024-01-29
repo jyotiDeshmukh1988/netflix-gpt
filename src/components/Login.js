@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
+import {USER_AVATAR} from "../utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -42,8 +43,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullname.current.value,
-            photoURL:
-              "https://lh3.googleusercontent.com/a/ACg8ocIjMBOqfiSctCcCEk74dRVD4iaQo7AI_RBmueA2y38fR74=s576-c-no",
+            photoURL:USER_AVATAR,
           })
             .then(() => {
               // Profile updated!

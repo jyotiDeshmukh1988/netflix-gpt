@@ -4,6 +4,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO, USER_AVATAR } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -22,7 +23,11 @@ const Header = () => {
   // handle auth state change here
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      //console.log(unsubscribe);
+      /* its a event listener so we have to remove on unmount the component 
+      by returning the function from the useEffect will unsubscribe 
+      this event listener */
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
@@ -42,6 +47,9 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => { // unsubscribe the onAuthStateChanged listener when component is unmount
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -49,7 +57,7 @@ const Header = () => {
       <div>
         <img
           className="w-44 z-10"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={LOGO}
           alt="logo"
         />
       </div>
@@ -58,10 +66,7 @@ const Header = () => {
           <img
             className="w-10 h-10 rounded-lg"
             alt="usericon"
-            src={
-              user?.photoURL ??
-              "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png"
-            }
+            src={USER_AVATAR}
           />
           <button onClick={handleSignOut} className="font-bold text-white">
             (Sign Out)
