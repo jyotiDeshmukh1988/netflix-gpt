@@ -20,7 +20,8 @@
 - Unsubscribe to the onAuthStateChange event
 - Add hardcoded values to the constants file
 - Register TMDB API and create an app and get access token
-- Get data from TMDB playing movies list API on Browse API
+- Get data from TMDB playing movies list API on Browse component
+- Create movieSlice in the redux store and store movies data into the store
 
 # Features
 - Login/Sign Up
