@@ -22,6 +22,14 @@
 - Register TMDB API and create an app and get access token
 - Get data from TMDB playing movies list API on Browse component
 - Create movieSlice in the redux store and store movies data into the store
+- Create custom hook for now playing movies
+- Update store with Movie data
+- Planning for main container for browse page
+- Main container for video showcase and video title
+- Fetch data for Trailer video 
+- Update store with Trailer video data
+- Embedded the Youtube video on the main container and play as autoplay
+- Use Tailwind to make the main container page awesome
 
 # Features
 - Login/Sign Up

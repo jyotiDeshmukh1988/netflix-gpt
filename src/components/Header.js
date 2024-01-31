@@ -53,23 +53,23 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute bg-gradient-to-b from-black flex justify-between w-full">
-      <div>
+    <div className="absolute bg-gradient-to-b from-black flex justify-between w-full z-30">
+      <div className="px-10 pt-2 cursor-pointer">
         <img
-          className="w-44 z-10"
+          className="w-44"
           src={LOGO}
           alt="logo"
         />
       </div>
       {user && (
-        <div className="flex p-3 items-center">
+        <div className="flex p-3 items-center gap-2">
           <img
             className="w-10 h-10 rounded-lg"
             alt="usericon"
             src={USER_AVATAR}
           />
           <button onClick={handleSignOut} className="font-bold text-white">
-            (Sign Out)
+            (Sign Out) 
           </button>
         </div>
       )}

@@ -10,17 +10,17 @@ const VideoBackground = ({ movieId }) => {
   useMovieTrailor(movieId);
 
   return (
-    <div>
+    <div className="w-full">
       {/*To display the trailor ID dynamic in the iframe video 
       will use the redux store to store the trailer ID in 
       the movieSlice this is second solution*/}
       <iframe
-        width="560"
-        height="315"
+        className="w-full aspect-video"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
-          "?si=6Eb3QI1gyTAb9h-K"
+          "?autoplay=1&mute=1&loop=1&playlist=" +
+          trailerVideo?.key
         }
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
