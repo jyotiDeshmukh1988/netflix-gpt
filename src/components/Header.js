@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, USER_AVATAR } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -54,7 +55,8 @@ const Header = () => {
   }, []);
 
   const handleGptSearchClick = () => {
-    
+    // Toggle GPT Search
+    dispatch(toggleGptSearchView());
   }
 
   return (
