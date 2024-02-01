@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import {USER_AVATAR} from "../utils/constants";
+import {USER_AVATAR,BG_IMG_URL} from "../utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
