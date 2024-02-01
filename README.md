@@ -36,6 +36,9 @@
 - TMDB image cdn URL
 - Made the browser page UI with Tailwind
 - Create the custom hook for now playing,upcoming,popular and toprated movies
+- Build GPT Feature
+- Create GPT Search Component
+- Create gptSlice in redux store to manage the gpt search
 
 # Features
 - Login/Sign Up

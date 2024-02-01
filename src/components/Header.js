@@ -10,6 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -52,6 +53,10 @@ const Header = () => {
     };
   }, []);
 
+  const handleGptSearchClick = () => {
+    
+  }
+
   return (
     <div className="absolute bg-gradient-to-b from-black flex justify-between w-full z-30">
       <div className="px-10 pt-2 cursor-pointer">
@@ -63,6 +68,7 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex p-3 items-center gap-2">
+          <button className="border-0 bg-red-700 font-semibold hover:bg-red-900 text-white px-6 py-2 rounded-md" onClick={handleGptSearchClick}>GPT Search</button>
           <img
             className="w-10 h-10 rounded-lg"
             alt="usericon"
