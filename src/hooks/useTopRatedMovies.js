@@ -1,25 +1,25 @@
 import { useEffect } from "react";
-import { addNowPlayingMovies } from "../utils/moviesSlice";
+import { addTopRatedMovies } from "../utils/moviesSlice";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
 
-const useNowPlayingMovies = () => {
+const useTopRatedMovies = () => {
       // fetch the data from TMDB API and update store
   const dispatch = useDispatch();
 
-  const getNowPlayingMovies = async () => {
+  const getTopRatedMovies = async () => {
     const results = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
       API_OPTIONS
     );
     const data = await results.json();
     //console.log(data.results);
-    dispatch(addNowPlayingMovies(data.results));
+    dispatch(addTopRatedMovies(data.results));
   };
 
   useEffect(() => {
-    getNowPlayingMovies();
+    getTopRatedMovies();
   }, []);
 };
 
-export default useNowPlayingMovies;
+export default useTopRatedMovies;

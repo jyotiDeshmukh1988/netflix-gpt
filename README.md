@@ -30,6 +30,12 @@
 - Update store with Trailer video data
 - Embedded the Youtube video on the main container and play as autoplay
 - Use Tailwind to make the main container page awesome
+- Build the Secondary Component
+- Build the Movie List
+- Build Movie Card
+- TMDB image cdn URL
+- Made the browser page UI with Tailwind
+- Create the custom hook for now playing,upcoming,popular and toprated movies
 
 # Features
 - Login/Sign Up
