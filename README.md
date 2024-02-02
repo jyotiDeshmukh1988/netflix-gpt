@@ -42,6 +42,8 @@
 - Create GPT Movies Suggestion
 - Create gptSlice in redux store to manage the gpt search
 - Add Multilingual Feature in our App
+- Install open ai package for accessing OpenAI Rest API
+- Create openai file and generate the key for OpenAI
 
 # Features
 - Login/Sign Up

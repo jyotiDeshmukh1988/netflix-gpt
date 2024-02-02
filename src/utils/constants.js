@@ -18,3 +18,5 @@ export const API_OPTIONS = {
   { identifier: "Telugu", name: "Telugu" },
   { identifier: "Arabic", name: "Arabic" },
 ];
+
+export const OPENAI_KEY = "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";
