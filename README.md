@@ -38,7 +38,10 @@
 - Create the custom hook for now playing,upcoming,popular and toprated movies
 - Build GPT Feature
 - Create GPT Search Component
+- Create GPT Search Bar
+- Create GPT Movies Suggestion
 - Create gptSlice in redux store to manage the gpt search
+- Add Multilingual Feature in our App
 
 # Features
 - Login/Sign Up
