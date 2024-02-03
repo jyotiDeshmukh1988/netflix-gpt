@@ -3,9 +3,60 @@
 @tailwind utilities;
 
 body {
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
+}
 
 .container-snap::-webkit-scrollbar {
   display: none;
 }
+/* shimmer css */
+.card {
+  position: relative;
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 6px;
+  height: 350px;
+  overflow: hidden;
+  width: 300px;
+}
+  .shimmerBG {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    background: linear-gradient(to right, #cac9c9 8%, #f0f0f0 18%, #cac9c9 33%);
+    background-size: 1200px 100%;
+  }
+
+  @-webkit-keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1200px 0;
+    }
+    100% {
+      background-position: 1200px 0;
+    }
+  }
+
+  .media {
+    height: 220px;
+    border-radius: 20px;
+  }
+
+  .title-line {
+    height: 24px;
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 20px;
+  }
+

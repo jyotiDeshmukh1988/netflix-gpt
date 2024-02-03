@@ -1,6 +1,7 @@
 import React from "react";
 import Browse from "./Browse";
 import Login from "./Login";
+import Error from "./Error";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const Body = () => {
@@ -8,11 +9,16 @@ const Body = () => {
     {
       path: "/",
       element: <Login />,
+      errorElement:<Error/>
     },
     {
       path: "/browse",
       element: <Browse />,
     },
+    {
+      path: "/error",
+      element: <Error/>,
+    }
   ]);
 
   return (

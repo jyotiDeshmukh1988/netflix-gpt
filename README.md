@@ -45,6 +45,7 @@
 - Install open ai package for accessing OpenAI Rest API
 - Create openai file and generate the key for OpenAI
 
+
 # Features
 - Login/Sign Up
     - Sign in/ Sign up form
