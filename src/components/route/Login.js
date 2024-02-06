@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
-import { checkValidData } from "../utils/validate";
-import { auth } from "../utils/firebase";
-import {USER_AVATAR,BG_IMG_URL} from "../utils/constants";
+import Header from "../Header";
+import { checkValidData } from "../../utils/validate";
+import { auth } from "../../utils/firebase";
+import {USER_AVATAR,BG_IMG_URL} from "../../utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -96,9 +96,9 @@ const Login = () => {
   return (
     <>
       <Header />
-      <div className="w-full h-full bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_large.jpg')] bg-cover bg-center">
+      <div className="w-screen h-screen bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_large.jpg')] bg-cover bg-center">
         <div
-          className="w-full h-full flex  justify-center items-center 
+          className="w-full h-screen flex justify-center items-center 
              bg-gray-900/60"
         >
           <div className="max-w-sm py-12 px-8 absolute bg-black text-white w-full bg-opacity-50 sm:w-2/3 lg:w-1/4 md:w-2/6 mx-auto">

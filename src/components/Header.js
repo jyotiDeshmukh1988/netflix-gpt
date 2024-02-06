@@ -70,12 +70,12 @@ const Header = () => {
   };
   const langKey = useSelector((store) => store.config.lang);
   return (
-    <div className="absolute bg-gradient-to-b from-black flex justify-between w-full z-30">
-      <div className="px-10 pt-2 cursor-pointer">
+    <div className="w-full absolute bg-gradient-to-b from-black flex justify-between z-30">
+      <div className="px-4 lg:px-8 pt-2 cursor-pointer">
         <img className="w-44" src={LOGO} alt="logo" />
       </div>
       {user && (
-        <div className="flex p-3 items-center gap-2">
+        <div className="flex p-3 items-center gap-1">
           {showGptSearch && (
             <select
               className="px-6 py-2 rounded-md bg-gray-800 text-white font-bold"
@@ -87,7 +87,7 @@ const Header = () => {
             </select>
           )}
           <button
-            className="border-0 bg-red-700 font-semibold hover:bg-red-900 text-white px-6 py-2 rounded-md"
+            className="border-0 bg-red-700 font-semibold hover:bg-red-900 text-white px-2 py-2 rounded-md text-sm"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home" : lang[langKey].gptButtonLabel}
@@ -97,7 +97,7 @@ const Header = () => {
             alt="usericon"
             src={USER_AVATAR}
           />
-          <button onClick={handleSignOut} className="font-bold text-white">
+          <button onClick={handleSignOut} className="font-bold text-white text-sm">
             (Sign Out)
           </button>
         </div>

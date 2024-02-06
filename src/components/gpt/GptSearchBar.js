@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import lang from "../utils/languageConstants";
+import lang from "../../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
-import openai from "../utils/openAI";
+import openai from "../../utils/openAI";
 import { useNavigate } from "react-router-dom";
-import { API_OPTIONS } from "../utils/constants";
-import { addGptMovieResult } from "../utils/gptSlice";
+import { API_OPTIONS } from "../../utils/constants";
+import { addGptMovieResult } from "../../utils/gptSlice";
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
@@ -56,9 +56,9 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full pt-[15%] xs:[pt-14%] sm:pt-[15%] flex justify-center items-center">
       <form
-        className="bg-black w-1/2 mb-5 grid grid-cols-12"
+        className="bg-black w-full lg:w-1/2 xs:w-full mx-6 sm:w-full mb-5 grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
