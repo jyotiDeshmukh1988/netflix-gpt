@@ -20,7 +20,7 @@ const Modal = ({isOpen,onClose,children}) => {
             <div
                 style={{
                     background: "white",
-                    width: 350,
+                    width: 450,
                     margin: "auto",
                     padding: "1%",
                     border: "2px solid #000",

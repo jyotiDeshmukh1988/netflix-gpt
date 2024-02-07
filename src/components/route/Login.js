@@ -1,25 +1,26 @@
 import React, { useRef, useState } from "react";
-import Header from "../Header";
 import { checkValidData } from "../../utils/validate";
 import { auth } from "../../utils/firebase";
-import {USER_AVATAR,BG_IMG_URL} from "../../utils/constants";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { USER_AVATAR, LOGO } from "../../utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
   const fullname = useRef(null);
-
+  const user = useSelector((store) => store.user);
   const handleButtonClick = () => {
     // validate form data
     // checkValidData(email,password);
@@ -43,7 +44,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullname.current.value,
-            photoURL:USER_AVATAR,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -56,6 +57,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
+              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -79,6 +81,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           //console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -93,9 +96,36 @@ const Login = () => {
     setErrorMessage(null);
   };
 
+  const signInwithgoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    //const credential = GoogleAuthProvider.credentialFromResult(result);
+    //const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    if(user) navigate("/browse");
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    //const email = error.customData.email;
+    // The AuthCredential type that was used.
+    //const credential = GoogleAuthProvider.credentialFromError(error);
+    setErrorMessage(errorCode + " - " + errorMessage);
+    // ...
+  });
+  }
+
   return (
     <>
-      <Header />
+      <div className="px-4 lg:px-8 pt-2 cursor-pointer absolute">
+        <img className="w-44" src={LOGO} alt="logo" />
+      </div>
       <div className="w-screen h-screen bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_large.jpg')] bg-cover bg-center">
         <div
           className="w-full h-screen flex justify-center items-center 
@@ -138,7 +168,7 @@ const Login = () => {
               <p className="text-red-800 font-bold text-md pb-4">
                 {errorMessage}
               </p>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-col">
                 <button
                   className="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
                   type="button"
@@ -146,6 +176,7 @@ const Login = () => {
                 >
                   {isSignInForm ? "Sign In" : "Sign Up"}
                 </button>
+                {isSignInForm && <button onClick={()=>signInwithgoogle()} className="w-full mt-3 text-white py-2 px-3 rounded bg-red-700 hover:bg-red-800 font-bold p-3">SignIn with Google</button>}
               </div>
               <p
                 className="text-xs my-4 p-2  text-zinc-400 cursor-pointer"
