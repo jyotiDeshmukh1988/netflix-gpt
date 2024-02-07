@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { API_OPTIONS, IMG_CDN_URL } from "../../utils/constants";
 import Modal from "../Modal";
 import { useDispatch, useSelector } from "react-redux";
-import {addMovieVideo } from "../../utils/moviesSlice";
+import {addMovieVideo } from "../../utils/store/moviesSlice";
 
 const MovieCard = ({ posterPath, title, desc, movieId }) => {
   const [open, setOpen] = React.useState(false);

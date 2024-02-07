@@ -9,7 +9,7 @@ const MovieList = ({ title, mymovies }) => {
       <div className="flex overflow-x-scroll container-snap overflow-y-hidden">
         <div className="flex ">
           {mymovies?.map((movie) => {
-            return <MovieCard key={movie?.id} posterPath={movie?.poster_path} title={movie?.original_title} desc={movie?.overview} movieDetail={movie} movieId={movie?.id}/>;
+            return <MovieCard key={movie?.id} posterPath={movie?.poster_path} title={movie?.original_title} desc={movie?.overview} movieId={movie?.id}/>;
           })}
         </div>
       </div>

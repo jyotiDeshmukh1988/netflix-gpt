@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
-import { changeLanguage } from "../utils/configSlice";
+import { changeLanguage } from "../utils/store/configSlice";
 import InnerHeader from "./InnerHeader";
 import lang from "../utils/languageConstants";
 
