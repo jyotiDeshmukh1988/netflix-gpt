@@ -8,11 +8,13 @@ import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { changeLanguage } from "../utils/store/configSlice";
 import InnerHeader from "./InnerHeader";
 import lang from "../utils/languageConstants";
+import Mobileheader from "./MobileHeader";
 
 const Header = ({ path }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [Dropdown, setDropdown] = useState(false);
+  const [Mobiledropdown, setMobiledropdown] = useState(false);
   const user = useSelector((store) => store.user);
   const langKey = useSelector((store) => store?.config?.lang);
   const handleSignOut = () => {
@@ -66,7 +68,14 @@ const Header = ({ path }) => {
 
   const handleDropDown = () => {
     setDropdown(!Dropdown);
+    //console.log(Dropdown);
   };
+
+  const handleMobileDropDown = () => {
+    setMobiledropdown(!Mobiledropdown);
+    //console.log(Mobiledropdown);
+  };
+
   return (
     <div className="w-full absolute bg-gradient-to-b from-black flex justify-between z-30">
       <div className="flex">
@@ -86,7 +95,15 @@ const Header = ({ path }) => {
                 onChange={handleLanguage}
               >
                 {SUPPORTED_LANGUAGES?.map((lang) => {
-                  return <option key={lang?.identifier} value={lang?.name} selected={lang?.name === langKey}>{lang?.name}</option>;
+                  return (
+                    <option
+                      key={lang?.identifier}
+                      value={lang?.name}
+                      selected={lang?.name === langKey}
+                    >
+                      {lang?.name}
+                    </option>
+                  );
                 })}
               </select>
             )}
@@ -102,6 +119,12 @@ const Header = ({ path }) => {
                   onClick={handleDropDown}
                 >
                   expand_more
+                </span>
+                <span
+                  className="material-icons text-white cursor-pointer min-[768px]:hidden"
+                  onClick={handleMobileDropDown}
+                >
+                  menu
                 </span>
               </div>
               {Dropdown && (
@@ -125,6 +148,11 @@ const Header = ({ path }) => {
                       {lang[langKey].gptButtonLabel}
                     </button>
                   )}
+                </div>
+              )}
+              {Mobiledropdown && (
+                <div className="flex flex-col items-start bg-black m-0 md:mr-5 bg-opacity-60 p-2 gap-2">
+                  <Mobileheader/>
                 </div>
               )}
             </div>

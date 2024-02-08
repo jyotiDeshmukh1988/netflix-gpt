@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
   const movies = useSelector((store) => store?.movies);
   //console.log(movies);
   const langKey = useSelector((store) => store?.config?.lang);
-  console.log(langKey);
+  //console.log(langKey);
   return (
     movies && (
       <div className="bg-black px-6 mt-28">
