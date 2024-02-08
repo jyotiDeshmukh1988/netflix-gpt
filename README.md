@@ -1,49 +1,45 @@
-# Netflix GPT
+# NetflixGPT
 
-- Create React App
-- Configured Tailwind CSS
-- Routing of App
-- Header
-- Login Form
-- Sign Up Form
-- Form Validation
-- useRef Hook
-- Firebase Setup
-- Deploying our app to production
-- Create Signup User Account
-- Implement Sign In user Api
-- Created Redux store with userSlice
-- Implemented Sign Out
-- Update Profile
-- BugFix: Sign up user displayName and profile picture update
-- BugFix: If the user is not logged in redirect fro browse to login page or vice versa
-- Unsubscribe to the onAuthStateChange event
-- Add hardcoded values to the constants file
-- Register TMDB API and create an app and get access token
-- Get data from TMDB playing movies list API on Browse component
-- Create movieSlice in the redux store and store movies data into the store
-- Create custom hook for now playing movies
-- Update store with Movie data
-- Planning for main container for browse page
-- Main container for video showcase and video title
-- Fetch data for Trailer video 
-- Update store with Trailer video data
-- Embedded the Youtube video on the main container and play as autoplay
-- Use Tailwind to make the main container page awesome
-- Build the Secondary Component
-- Build the Movie List
-- Build Movie Card
-- TMDB image cdn URL
-- Made the browser page UI with Tailwind
-- Create the custom hook for now playing,upcoming,popular and toprated movies
-- Build GPT Feature
-- Create GPT Search Component
-- Create GPT Search Bar
-- Create GPT Movies Suggestion
-- Create gptSlice in redux store to manage the gpt search
-- Add Multilingual Feature in our App
-- Install open ai package for accessing OpenAI Rest API
-- Create openai file and generate the key for OpenAI
+NetflixGPT is a dynamic movie recommendation web application built using ReactJS, Tailwind CSS, Redux Toolkit, and GPT APIs. It uses Firebase Authentication for user login, logout and added other features such as custom hooks, language change options, infinite scroll, memoization, modularity, protected routes, and code reusability.
+
+## Features
+
+### Custom Hook: 
+We've implemented a custom hook to manage state and logic across components efficiently.
+
+### Modal Popup
+We have added the popup to see the movie detail video
+
+### Google SignIn
+Added the signin using Google SignIn provider using firebase
+
+### Language Change Option: 
+Users can easily switch between languages to enjoy movie suggestions in their preferred language.
+
+### Infinite Scroll:
+Add infinite scroll for a seamless browsing experience.
+
+### Memoization:
+We've optimized performance using memoization techniques to prevent unnecessary renders.
+
+### Modularity: 
+The project is organized into modular components, making it easy to maintain and extend.
+
+### Protected Routes:
+ Certain routes are protected and only accessible to authenticated users, enhancing security.
+
+### Code Reusability:
+We've prioritized code reusability, clean, maintainable code.
+
+## Getting Started
+
+### To get started with NetflixGPT, follow these steps:
+
+#### Clone this repository to your local machine. 
+#### Install dependencies using npm install.
+#### Create a Firebase project and configure Firebase Authentication.
+#### Add your GPT API credentials.
+#### Run the app using npm start.
 
 
 # Features
@@ -57,6 +53,6 @@
         - Title and Description
         - Movie Suggestions
             - Movielist * N
-- NetflixGPT
+- NetflixGPT using Open AI library
     - Search Bar
     - Movie Suggestions            
