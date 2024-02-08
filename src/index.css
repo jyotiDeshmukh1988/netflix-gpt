@@ -29,7 +29,10 @@ body {
     background: linear-gradient(to right, #cac9c9 8%, #f0f0f0 18%, #cac9c9 33%);
     background-size: 1200px 100%;
   }
-
+  .active{
+    color:#B91C1B;
+    font-weight: bold;
+  }
   @-webkit-keyframes shimmer {
     0% {
       background-position: -100% 0;

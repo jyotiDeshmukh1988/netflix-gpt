@@ -1,39 +1,26 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import lang from '../utils/languageConstants';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import lang from "../utils/languageConstants";
+import { useSelector } from "react-redux";
 
 const InnerHeader = () => {
-    const navigate = useNavigate();
-    const langKey = useSelector((store) => store?.config?.lang);
+  const langKey = useSelector((store) => store?.config?.lang);
   return (
     <ul className="text-white lg:flex gap-8 pl-3 pt-5 hidden sm:hidden">
-      <li
-        className="cursor-pointer hover:text-red-700"
-        onClick={() => navigate("/browse")}
-      >
-        {lang[langKey].home}
+      <li className="cursor-pointer hover:text-red-700">
+        <NavLink to="/browse">{lang[langKey].home}</NavLink>
       </li>
-      <li
-        className="cursor-pointer hover:text-red-700"
-        onClick={() => navigate("/popular")}
-      >
-        {lang[langKey].popularMovies}
+      <li className="cursor-pointer hover:text-red-700">
+        <NavLink to="/toprated">{lang[langKey].topRated}</NavLink>
       </li>
-      <li
-        className="cursor-pointer  hover:text-red-700"
-        onClick={() => navigate("/toprated")}
-      >
-        {lang[langKey].topRated}
+      <li className="cursor-pointer hover:text-red-700">
+        <NavLink to="/popular">{lang[langKey].popularMovies}</NavLink>
       </li>
-      <li
-        className="cursor-pointer  hover:text-red-700"
-        onClick={() => navigate("/upcoming")}
-      >
-        {lang[langKey].upcoming}
+      <li className="cursor-pointer hover:text-red-700">
+        <NavLink to="/upcoming">{lang[langKey].upcoming}</NavLink>
       </li>
-      </ul>
-  )
-}
+    </ul>
+  );
+};
 
-export default InnerHeader
+export default InnerHeader;
